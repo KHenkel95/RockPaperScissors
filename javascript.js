@@ -15,6 +15,9 @@ Loop for 5 games total player
 
 */
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
 
@@ -39,6 +42,3 @@ function getHumanChoice(){
     }
     return humanChoice;
 }
-
-let humanChoice = getHumanChoice();
-console.log(humanChoice);
