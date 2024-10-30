@@ -33,10 +33,12 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let humanChoice = prompt("Choose: rock, paper, or scissors");
+    humanChoice = humanChoice.toLowerCase();
+    console.log(typeof(humanChoice));
 //TODO evaluate the string the user entered against "rock", "paper", or "scissors"
-    // while(humanChoice.toLowerCase() !== "rock"){
-        // humanChoice = prompt("Try again. Choose: rock, paper, or scissors");
-    // }
+    if(humanChoice !== "rock" || humanChoice !== "paper" || humanChoice !== "scissors"){
+        humanChoice = prompt(`You entered ${humanChoice}. Please choose: rock, paper, or scissors`);
+    }
     return humanChoice;
 }
 
