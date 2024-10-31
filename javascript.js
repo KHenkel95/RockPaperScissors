@@ -17,6 +17,8 @@ Loop for 5 games total player
 
 let humanScore = 0;
 let computerScore = 0;
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
 
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
@@ -41,4 +43,43 @@ function getHumanChoice(){
         humanChoice = prompt(`You entered ${humanChoice}. Please choose: rock, paper, or scissors`);
     }
     return humanChoice;
+}
+
+function playRound(humanChoice, computerChoice){
+    if (humanChoice === computerChoice){
+        console.log(`It's a draw. You both chose ${humanChoice}. Try again.`);
+        return;
+    }
+    if(humanChoice === "rock"){
+        if(computerChoice === "paper"){
+            console.log("You lose! Paper beats rock");
+            computerScore++;
+        }
+        else if(computerChoice === "scissors"){
+            console.log("You win! rock beats scissors!");
+            humanScore++;
+        }
+    }
+
+    if(humanChoice === "paper"){
+        if(computerChoice === "rock"){
+            console.log("You win! Paper beats rock");
+            humanScore++;
+        }
+        else if(computerChoice === "scissors"){
+            console.log("You lose! scissors beats paper!");
+            computerScore++;
+        }
+    }
+
+    if(humanChoice === "scissors"){
+        if(computerChoice === "paper"){
+            console.log("You win! scissors beats paper");
+            humanScore++;
+        }
+        else if(computerChoice === "rock"){
+            console.log("You lose! rock beats scissors!");
+            computerScore++;
+        }
+    }
 }
