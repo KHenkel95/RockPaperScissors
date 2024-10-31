@@ -1,22 +1,3 @@
-/*
-PSEUDOCODE
-
-Generate computer choice of: Rock, Paper, or Scissors
-
-Receive user input choice of : Rock, Paper, or Scissors
-
-Determine who won (Rock beats scissors, loses to paper; Paper beats rock, loses to scissors; Scissors beats paper, loses to rock)
-
-If user wins print a message telling them so and why and increase user score
-If user loses print a message telling them so and why and increase computer score
-If it results in a tie, display a message saying so and prompt the user for a new choice
-
-Loop for 5 games total player
-
-*/
-
-
-
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
 
@@ -48,10 +29,15 @@ function playGame(){
     let humanScore = 0;
     let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice){
-        if (humanChoice === computerChoice){
+    function playRound(){
+
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+
+        while(humanChoice === computerChoice){
             console.log(`It's a draw. You both chose ${humanChoice}. Try again.`);
-            return;
+            humanChoice = getHumanChoice();
+            computerChoice = getComputerChoice();
         }
         if(humanChoice === "rock"){
             if(computerChoice === "paper"){
@@ -88,9 +74,7 @@ function playGame(){
     }
     
     for(i = 0; i < 5; i++){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
+        playRound();
     }
 
     if(humanScore > computerScore){
