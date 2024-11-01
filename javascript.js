@@ -51,7 +51,6 @@ function compareChoice(humanChoice, computerChoice){
             humanScore++;
         }
     }
-
     if(humanChoice === "paper"){
         if(computerChoice === "rock"){
             console.log("You win! Paper beats rock");
@@ -62,7 +61,6 @@ function compareChoice(humanChoice, computerChoice){
             computerScore++;
         }
     }
-
     if(humanChoice === "scissors"){
         if(computerChoice === "paper"){
             console.log("You win! scissors beats paper");
@@ -77,8 +75,6 @@ function compareChoice(humanChoice, computerChoice){
 
 
 function playGame(){
-    
-
     function playRound(){
 
         let humanChoice = getHumanChoice();
@@ -86,11 +82,9 @@ function playGame(){
         compareChoice(humanChoice, computerChoice);
         
     }
-    
     for(i = 0; i < 5; i++){
         playRound();
     }
-
     whoWon(humanScore, computerScore);
 }
 
