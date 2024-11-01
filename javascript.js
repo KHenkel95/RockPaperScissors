@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
+//Generates the computers choice and returns the value
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
 
@@ -17,6 +18,7 @@ function getComputerChoice(){
     }
 }
 
+//Prompts the user for a choice and returns the value once validated
 function getHumanChoice(){
     let humanChoice = prompt("Choose: rock, paper, or scissors");
     humanChoice = humanChoice.toLowerCase();
@@ -26,6 +28,8 @@ function getHumanChoice(){
     return humanChoice;
 }
 
+/**Compares the users score and the computers score and determines who won the
+game of 5 rounds **/
 function whoWon(humanScore, computerScore){
     if(humanScore > computerScore){
         console.log(`Congratulations! You won by beating the computer ${humanScore} times`);
@@ -35,6 +39,8 @@ function whoWon(humanScore, computerScore){
     }
 }
 
+/**Compares the users choice to the computers and determines who won the round, 
+or if a draw occurred**/
 function compareChoice(humanChoice, computerChoice){
     while(humanChoice === computerChoice){
         console.log(`It's a draw. You both chose ${humanChoice}. Try again.`);
@@ -73,7 +79,7 @@ function compareChoice(humanChoice, computerChoice){
     }
 }
 
-
+//Plays the game in a format of 5 rounds
 function playGame(){
     function playRound(){
 
