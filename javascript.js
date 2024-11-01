@@ -4,7 +4,6 @@ let computerScore = 0;
 //Generates the computers choice and returns the value
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
-
     switch(computerNumber){
         case 0:
             return "rock";
