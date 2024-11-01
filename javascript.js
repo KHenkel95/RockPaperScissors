@@ -23,7 +23,14 @@ function getHumanChoice(){
     return humanChoice;
 }
 
-
+function whoWon(humanScore, computerScore){
+    if(humanScore > computerScore){
+        console.log(`Congratulations! You won by beating the computer ${humanScore} times`);
+    }
+    else{
+        console.log(`Sorry. You lose. The computer beat you ${computerScore} times.`);
+    }
+}
 
 function playGame(){
     let humanScore = 0;
@@ -77,12 +84,7 @@ function playGame(){
         playRound();
     }
 
-    if(humanScore > computerScore){
-        console.log(`Congratulations! You won by beating the computer ${humanScore} times`);
-    }
-    else{
-        console.log(`Sorry. You lose. The computer beat you ${computerScore} times.`);
-    }
+    whoWon(humanScore, computerScore);
 }
 
 playGame();
