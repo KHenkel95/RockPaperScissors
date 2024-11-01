@@ -46,35 +46,14 @@ function compareChoice(humanChoice, computerChoice){
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
     }
-    if(humanChoice === "rock"){
-        if(computerChoice === "paper"){
-            console.log("You lose! Paper beats rock");
-            computerScore++;
-        }
-        else if(computerChoice === "scissors"){
-            console.log("You win! rock beats scissors!");
-            humanScore++;
-        }
+    if(humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper"){
+        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+        humanScore++;
     }
-    if(humanChoice === "paper"){
-        if(computerChoice === "rock"){
-            console.log("You win! Paper beats rock");
-            humanScore++;
-        }
-        else if(computerChoice === "scissors"){
-            console.log("You lose! scissors beats paper!");
-            computerScore++;
-        }
-    }
-    if(humanChoice === "scissors"){
-        if(computerChoice === "paper"){
-            console.log("You win! scissors beats paper");
-            humanScore++;
-        }
-        else if(computerChoice === "rock"){
-            console.log("You lose! rock beats scissors!");
-            computerScore++;
-        }
+
+    if(computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "paper" && humanChoice === "rock" || computerChoice === "scissors" && humanChoice === "paper"){
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        computerScore++;
     }
 }
 
