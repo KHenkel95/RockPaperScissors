@@ -21,8 +21,12 @@ function getComputerChoice(){
 function getHumanChoice(){
     let humanChoice = prompt("Choose: rock, paper, or scissors");
     humanChoice = humanChoice.toLowerCase();
-    while(humanChoice !== "rock" && humanChoice !== "scissors" && humanChoice !== "paper"){
-        humanChoice = prompt(`You entered ${humanChoice}. Please choose: rock, paper, or scissors`);
+    while(
+        humanChoice !== "rock" && humanChoice !== "scissors"
+        && humanChoice !== "paper"
+    ){
+        humanChoice = prompt(`You entered ${humanChoice}. Please choose: `
+            + `rock, paper, or scissors`);
     }
     return humanChoice;
 }
@@ -31,10 +35,12 @@ function getHumanChoice(){
 game of 5 rounds **/
 function whoWon(humanScore, computerScore){
     if(humanScore > computerScore){
-        console.log(`Congratulations! You won by beating the computer ${humanScore} times`);
+        console.log(`Congratulations! You won by beating the computer`
+            + ` ${humanScore} times`);
     }
     else{
-        console.log(`Sorry. You lose. The computer beat you ${computerScore} times.`);
+        console.log(`Sorry. You lose. The computer beat you ${computerScore}`
+            + ` times.`);
     }
 }
 
