@@ -57,23 +57,27 @@ function compareChoice(humanChoice, computerChoice){
     }
 }
 
-let menu = document.querySelector('#menu');
+function playGame(){
+    let menu = document.querySelector('#menu');
 
-menu.addEventListener('click', (event) => {
-    let target = event.target;
-    let computerChoice = getComputerChoice();
-    let humanChoice = '';
-    switch(target.id) {
-        case 'rock':
-            humanChoice = 'rock';
-            break;
-        case 'paper':
-            humanChoice = 'paper';
-            break;
-        case 'scissors':
-            humanChoice = 'scissors';
-            break;
-    }
-    compareChoice(humanChoice, computerChoice);
-    whoWon(humanScore, computerScore);
-});
+    menu.addEventListener('click', (event) => {
+        let target = event.target;
+        let computerChoice = getComputerChoice();
+        let humanChoice = '';
+        switch(target.id) {
+            case 'rock':
+                humanChoice = 'rock';
+                break;
+            case 'paper':
+                humanChoice = 'paper';
+                break;
+            case 'scissors':
+                humanChoice = 'scissors';
+                break;
+        }
+        compareChoice(humanChoice, computerChoice);
+        whoWon(humanScore, computerScore);
+    });
+}
+
+playGame();
