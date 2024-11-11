@@ -80,9 +80,7 @@ function playGame(){
         compareChoice(humanChoice, computerChoice);
         
     }
-    for(i = 0; i < 5; i++){
-        playRound();
-    }
+    playRound();
     whoWon(humanScore, computerScore);
 }
 
