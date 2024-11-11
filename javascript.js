@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 //Generates the computers choice and returns the value
 function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
@@ -30,34 +27,35 @@ function whoWon(humanScore, computerScore){
     }
 }
 
-/**Compares the users choice to the computers and determines who won the round, 
-or if a draw occurred**/
-function compareChoice(humanChoice, computerChoice){
-    const choice = document.querySelector('#choice');
-    while(humanChoice === computerChoice){
-        choice.textContent = `It's a draw. You both chose ${humanChoice}. Try again.`;
-        break;
-    }
-    if(
-        humanChoice === "rock" && computerChoice === "scissors" 
-        || humanChoice === "paper" && computerChoice === "rock"
-        || humanChoice === "scissors" && computerChoice === "paper"
-    ){
-        choice.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
-        humanScore++;
-    }
-
-    if(
-        computerChoice === "rock" && humanChoice === "scissors"
-        || computerChoice === "paper" && humanChoice === "rock"
-        || computerChoice === "scissors" && humanChoice === "paper"
-    ){
-        choice.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
-        computerScore++;
-    }
-}
-
 function playGame(){
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function compareChoice(humanChoice, computerChoice){
+        const choice = document.querySelector('#choice');
+        while(humanChoice === computerChoice){
+            choice.textContent = `It's a draw. You both chose ${humanChoice}. Try again.`;
+            break;
+        }
+        if(
+            humanChoice === "rock" && computerChoice === "scissors" 
+            || humanChoice === "paper" && computerChoice === "rock"
+            || humanChoice === "scissors" && computerChoice === "paper"
+        ){
+            choice.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+            humanScore++;
+        }
+    
+        if(
+            computerChoice === "rock" && humanChoice === "scissors"
+            || computerChoice === "paper" && humanChoice === "rock"
+            || computerChoice === "scissors" && humanChoice === "paper"
+        ){
+            choice.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+            computerScore++;
+        }
+    }
+
     let menu = document.querySelector('#menu');
 
     menu.addEventListener('click', (event) => {
