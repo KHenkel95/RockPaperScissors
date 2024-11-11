@@ -20,21 +20,23 @@ function getComputerChoice(){
 /**Compares the users score and the computers score and determines who won the
 game of 5 rounds **/
 function whoWon(humanScore, computerScore){
+    const results = document.querySelector('#results');
     if(humanScore > computerScore){
-        console.log(`Congratulations! You won by beating the computer`
-            + ` ${humanScore} times`);
+        results.textContent = `Congratulations! You won by beating the computer`
+            + ` ${humanScore} times`;
     }
     else{
-        console.log(`Sorry. You lose. The computer beat you ${computerScore}`
-            + ` times.`);
+        results.textContent = `Sorry. You lose. The computer beat you ${computerScore}`
+            + ` times.`;
     }
 }
 
 /**Compares the users choice to the computers and determines who won the round, 
 or if a draw occurred**/
 function compareChoice(humanChoice, computerChoice){
+    const choice = document.querySelector('#choice');
     while(humanChoice === computerChoice){
-        console.log(`It's a draw. You both chose ${humanChoice}. Try again.`);
+        choice.textContent = `It's a draw. You both chose ${humanChoice}. Try again.`;
         break;
     }
     if(
@@ -42,7 +44,7 @@ function compareChoice(humanChoice, computerChoice){
         || humanChoice === "paper" && computerChoice === "rock"
         || humanChoice === "scissors" && computerChoice === "paper"
     ){
-        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+        choice.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
         humanScore++;
     }
 
@@ -51,7 +53,7 @@ function compareChoice(humanChoice, computerChoice){
         || computerChoice === "paper" && humanChoice === "rock"
         || computerChoice === "scissors" && humanChoice === "paper"
     ){
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        choice.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
         computerScore++;
     }
 }
