@@ -17,20 +17,6 @@ function getComputerChoice(){
     }
 }
 
-//Prompts the user for a choice and returns the value once validated
-function getHumanChoice(){
-    let humanChoice = prompt("Choose: rock, paper, or scissors");
-    humanChoice = humanChoice.toLowerCase();
-    while(
-        humanChoice !== "rock" && humanChoice !== "scissors"
-        && humanChoice !== "paper"
-    ){
-        humanChoice = prompt(`You entered ${humanChoice}. Please choose: `
-            + `rock, paper, or scissors`);
-    }
-    return humanChoice;
-}
-
 /**Compares the users score and the computers score and determines who won the
 game of 5 rounds **/
 function whoWon(humanScore, computerScore){
@@ -49,8 +35,7 @@ or if a draw occurred**/
 function compareChoice(humanChoice, computerChoice){
     while(humanChoice === computerChoice){
         console.log(`It's a draw. You both chose ${humanChoice}. Try again.`);
-        humanChoice = getHumanChoice();
-        computerChoice = getComputerChoice();
+        break;
     }
     if(
         humanChoice === "rock" && computerChoice === "scissors" 
@@ -71,17 +56,23 @@ function compareChoice(humanChoice, computerChoice){
     }
 }
 
-//Plays the game in a format of 5 rounds
-function playGame(){
-    function playRound(){
+let menu = document.querySelector('#menu');
 
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        compareChoice(humanChoice, computerChoice);
-        
+menu.addEventListener('click', (event) => {
+    let target = event.target;
+    let computerChoice = getComputerChoice();
+    let humanChoice = '';
+    switch(target.id) {
+        case 'rock':
+            humanChoice = 'rock';
+            break;
+        case 'paper':
+            humanChoice = 'paper';
+            break;
+        case 'scissors':
+            humanChoice = 'scissors';
+            break;
     }
-    playRound();
+    compareChoice(humanChoice, computerChoice);
     whoWon(humanScore, computerScore);
-}
-
-playGame();
+});
