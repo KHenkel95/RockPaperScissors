@@ -21,13 +21,12 @@ function getComputerChoice(){
 game of 5 rounds **/
 function whoWon(humanScore, computerScore){
     const results = document.querySelector('#results');
-    if(humanScore > computerScore){
-        results.textContent = `Congratulations! You won by beating the computer`
-            + ` ${humanScore} times`;
+    results.textContent = `You: ${humanScore} Computer: ${computerScore}`;
+    if(humanScore === 5){
+        results.textContent = `Congratulations! You won by beating the computer ${humanScore} times to ${computerScore}. Refresh the page to play again.`;
     }
-    else{
-        results.textContent = `Sorry. You lose. The computer beat you ${computerScore}`
-            + ` times.`;
+    else if(computerScore === 5){
+        results.textContent = `Sorry. You lose. The computer beat you ${computerScore} times to ${humanScore}. Refresh the page to play again.`;
     }
 }
 
