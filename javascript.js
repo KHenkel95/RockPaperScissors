@@ -4,13 +4,10 @@ function getComputerChoice(){
     switch(computerNumber){
         case 0:
             return "rock";
-            break;
         case 1:
             return "paper";
-            break;
         case 2:
             return "scissors";
-            break;
     }
 }
 
@@ -21,10 +18,25 @@ function whoWon(humanScore, computerScore){
     results.textContent = `You: ${humanScore} Computer: ${computerScore}`;
     if(humanScore === 5){
         results.textContent = `Congratulations! You won by beating the computer ${humanScore} times to ${computerScore}. Refresh the page to play again.`;
+        restartGame();
     }
     else if(computerScore === 5){
         results.textContent = `Sorry. You lose. The computer beat you ${computerScore} times to ${humanScore}. Refresh the page to play again.`;
+        restartGame();
     }
+}
+
+function restartGame(){
+    const restartButton = document.createElement("button");
+    restartButton.textContent = "Play again?";
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        menu.removeChild(button);
+    });
+    menu.appendChild(restartButton);
+    restartButton.addEventListener('click', () => {
+        location.reload();
+    });
 }
 
 function playGame(){
@@ -56,7 +68,7 @@ function playGame(){
         }
     }
 
-    let menu = document.querySelector('#menu');
+    const menu = document.querySelector('#menu');
 
     menu.addEventListener('click', (event) => {
         let target = event.target;
