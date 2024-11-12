@@ -3,11 +3,11 @@ function getComputerChoice(){
     let computerNumber = Math.floor(Math.random() * 3);
     switch(computerNumber){
         case 0:
-            return "rock";
+            return 'rock';
         case 1:
-            return "paper";
+            return 'paper';
         case 2:
-            return "scissors";
+            return 'scissors';
     }
 }
 
@@ -30,18 +30,18 @@ function playGame(){
             break;
         }
         if(
-            humanChoice === "rock" && computerChoice === "scissors" 
-            || humanChoice === "paper" && computerChoice === "rock"
-            || humanChoice === "scissors" && computerChoice === "paper"
+            humanChoice === 'rock' && computerChoice === 'scissors' 
+            || humanChoice === 'paper' && computerChoice === 'rock'
+            || humanChoice === 'scissors' && computerChoice === 'paper'
         ){
             choice.textContent = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}!`;
             humanScore++;
         }
     
         if(
-            computerChoice === "rock" && humanChoice === "scissors"
-            || computerChoice === "paper" && humanChoice === "rock"
-            || computerChoice === "scissors" && humanChoice === "paper"
+            computerChoice === 'rock' && humanChoice === 'scissors'
+            || computerChoice === 'paper' && humanChoice === 'rock'
+            || computerChoice === 'scissors' && humanChoice === 'paper'
         ){
             choice.textContent = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(humanChoice)}!`;
             computerScore++;
@@ -51,8 +51,8 @@ function playGame(){
     const menu = document.querySelector('.menu');
 
     function restartGame(){
-        const restartButton = document.createElement("button");
-        restartButton.textContent = "Play again?";
+        const restartButton = document.createElement('button');
+        restartButton.textContent = 'Play again?';
         const buttons = document.querySelectorAll('button');
         buttons.forEach((button) => {
             menu.removeChild(button);
