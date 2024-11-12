@@ -13,31 +13,9 @@ function getComputerChoice(){
 
 /**Compares the users score and the computers score and determines who won the
 game of 5 rounds **/
-function whoWon(humanScore, computerScore){
-    const results = document.querySelector('#results');
-    results.textContent = `You: ${humanScore} Computer: ${computerScore}`;
-    if(humanScore === 5){
-        results.textContent = `Congratulations! You won by beating the computer ${humanScore} times to ${computerScore}. Refresh the page to play again.`;
-        restartGame();
-    }
-    else if(computerScore === 5){
-        results.textContent = `Sorry. You lose. The computer beat you ${computerScore} times to ${humanScore}. Refresh the page to play again.`;
-        restartGame();
-    }
-}
 
-function restartGame(){
-    const restartButton = document.createElement("button");
-    restartButton.textContent = "Play again?";
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
-        menu.removeChild(button);
-    });
-    menu.appendChild(restartButton);
-    restartButton.addEventListener('click', () => {
-        location.reload();
-    });
-}
+
+
 
 function playGame(){
     let humanScore = 0;
@@ -68,7 +46,33 @@ function playGame(){
         }
     }
 
-    const menu = document.querySelector('#menu');
+    const menu = document.querySelector('.menu');
+
+    function restartGame(){
+        const restartButton = document.createElement("button");
+        restartButton.textContent = "Play again?";
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            menu.removeChild(button);
+        });
+        menu.appendChild(restartButton);
+        restartButton.addEventListener('click', () => {
+            location.reload();
+        });
+    }
+
+    function whoWon(humanScore, computerScore){
+        const results = document.querySelector('#results');
+        results.textContent = `You: ${humanScore} Computer: ${computerScore}`;
+        if(humanScore === 5){
+            results.textContent = `Congratulations! You won by beating the computer ${humanScore} times to ${computerScore}. Refresh the page to play again.`;
+            restartGame();
+        }
+        else if(computerScore === 5){
+            results.textContent = `Sorry. You lose. The computer beat you ${computerScore} times to ${humanScore}. Refresh the page to play again.`;
+            restartGame();
+        }
+    }
 
     menu.addEventListener('click', (event) => {
         let target = event.target;
