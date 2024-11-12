@@ -15,7 +15,9 @@ function getComputerChoice(){
 game of 5 rounds **/
 
 
-
+function capitalizeFirstLetter(string){
+    return String(string).charAt(0).toUpperCase() + string.slice(1);
+}
 
 function playGame(){
     let humanScore = 0;
@@ -24,7 +26,7 @@ function playGame(){
     function compareChoice(humanChoice, computerChoice){
         const choice = document.querySelector('#choice');
         while(humanChoice === computerChoice){
-            choice.textContent = `It's a draw. You both chose ${humanChoice}. Try again.`;
+            choice.textContent = `It's a draw. You both chose ${capitalizeFirstLetter(humanChoice)}. Try again.`;
             break;
         }
         if(
@@ -32,7 +34,7 @@ function playGame(){
             || humanChoice === "paper" && computerChoice === "rock"
             || humanChoice === "scissors" && computerChoice === "paper"
         ){
-            choice.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+            choice.textContent = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}!`;
             humanScore++;
         }
     
@@ -41,7 +43,7 @@ function playGame(){
             || computerChoice === "paper" && humanChoice === "rock"
             || computerChoice === "scissors" && humanChoice === "paper"
         ){
-            choice.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+            choice.textContent = `You lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(humanChoice)}!`;
             computerScore++;
         }
     }
